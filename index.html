@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Slag Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f5f5f5;
+    }
+    .container {
+        text-align: center;
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Project X</h1>
+    <form id="slagForm">
+        <label for="num1">Enter first number:</label>
+        <input type="number" id="num1" name="num1" required><br>
+        <label for="num2">Enter second number:</label>
+        <input type="number" id="num2" name="num2" required><br>
+        <button type="submit">SUBMIT</button>
+    </form>
+    <div id="slagOutput"></div>
+</div>
+
+<script>
+    document.getElementById('slagForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        var num1 = parseInt(document.getElementById('num1').value);
+        var num2 = parseInt(document.getElementById('num2').value);
+        
+        var slag = generateSlag(num1, num2);
+        
+        document.getElementById('slagOutput').innerText = slag;
+    });
+
+    function generateSlag(num1, num2) {
+        var slags = [
+            "Hey Pandu",
+            "Nikal Ghode",
+            "Are you comming again, go and fuck off",
+            "Dhoom Chutda",
+            "bhed ki sakal me modiwale ",
+            "zindgi sawar do teri g"
+        ];
+
+        var randomIndex = Math.floor(Math.random() * slags.length);
+        return slags[randomIndex];
+    }
+</script>
+</body>
+</html>
